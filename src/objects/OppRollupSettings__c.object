@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customSettingsType>Hierarchy</customSettingsType>
+    <fields>
+        <fullName>Enable_Opp_Rollup_Triggers__c</fullName>
+        <defaultValue>true</defaultValue>
+        <inlineHelpText>Check this box to update opportunity totals whenever opportunities are inserted or updated (as long as capacity allows).</inlineHelpText>
+        <label>Roll Up Opps in Triggers</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Excluded_Account_Opp_Rectypes__c</fullName>
+        <inlineHelpText>Names of opportunity record types to exclude when rolling up account opportunities. Separate record type names with semicolons.</inlineHelpText>
+        <label>Opp Record Types Excluded for Accounts</label>
+        <length>255</length>
+        <type>Text</type>
+    </fields>
+    <fields>
+        <fullName>Excluded_Account_Opp_Types__c</fullName>
+        <inlineHelpText>Values for the opportunity Type field to exclude when rolling up account opportunities. Separate types with semicolons.</inlineHelpText>
+        <label>Opp Types Excluded for Acounts</label>
+        <length>255</length>
+        <type>Text</type>
+    </fields>
+    <fields>
+        <fullName>Excluded_Contact_Opp_Rectypes__c</fullName>
+        <inlineHelpText>Names of opportunity record types to exclude when rolling up contact opportunities. Separate record type names with semicolons.</inlineHelpText>
+        <label>Opp Record Types Excluded for Contacts</label>
+        <length>255</length>
+        <type>Text</type>
+    </fields>
+    <fields>
+        <fullName>Excluded_Contact_Opp_Types__c</fullName>
+        <inlineHelpText>Values for the opportunity Type field to exclude when rolling up contact opportunities. Separate types with semicolons.</inlineHelpText>
+        <label>Opp Types Excluded for Contacts</label>
+        <length>255</length>
+        <type>Text</type>
+    </fields>
+    <label>Opportunity Rollup Settings</label>
+</CustomObject>
