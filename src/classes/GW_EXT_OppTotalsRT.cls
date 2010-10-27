@@ -123,6 +123,12 @@ public with sharing class GW_EXT_OppTotalsRT {
 					ORDER BY Fiscal_Year(Opportunity.CloseDate) DESC ];
 			}
 	
+			// the "current" year might actually be named for next year
+			integer fyAdjustment = 0;
+			// you can optionally comment the following 2 lines out if you know FY starts in Jan (or is named for start month)
+			organization o = [select fiscalYearStartMonth, UsesStartDateAsFiscalYearName from organization limit 1];
+			if (o.FiscalYearStartMonth > 1 && !o.UsesStartDateAsFiscalYearName) fyAdjustment = 1;
+
 			// process the aggregate results
 			integer i = 0;
 			list<string> recordTypes = new list<string>();
@@ -134,7 +140,7 @@ public with sharing class GW_EXT_OppTotalsRT {
 				integer fy = (integer)(r.get('FiscalYear'));
 				
 				// null year means this is the totals row
-				string row = (fy != null) ? string.valueOf(fy) : 'Total';
+				string row = (fy != null) ? string.valueOf(fy + fyAdjustment) : 'Total';
 				
 				// get or create the totals object for this result row
 				if (!allrows.containsKey(row)) {
